@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="container-fluid" style="background-color:black;border-radius:10px;">
+    <div class="row">
+        <div class="col-sm-12">
+            <center><label class="animated lightSpeedIn" style="color:white;margin-top:5px;font-family:Bradley Hand,cursive;font-size:25px;">Poetry Emotion Detection</label>
+            </center>
+        </div>
+    </div>
+    <div class="row">
+           <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+             <div class="form-group">
+                 <form action="{{url_for('uploadfiles')}}"  method="POST" enctype="multipart/form-data">
+                 <div class="input-group mb-3">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="file" onchange="this.form.submit();" name="file" data-toggle="tooltip" title="insert only text file 'eg.filename.txt'" >
+                              <label class="custom-file-label" for="file">Choose file</label>
+                            </div>
+                          </div>
+                       </form>    
+            </div>
+            <center><label class="" style="color:white;font-family:Bradley Hand,cursive;font-size:15px;">OR</label>
+            </center>
+            <form action="{{url_for('input')}}"  method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title" style="color:white;font-family:Bradley Hand,cursive;font-size:15px;">Title:</label>
+                <input type="text" placeholder="type a title here" name="title" class="form-control" id="title" value="{{title}}">
+              </div>
+              <div class="form-group">
+                <label for="poemtext" style="color:white;font-family:Bradley Hand,cursive;font-size:15px;">Poem</label>
+                <textarea type="text" placeholder="type a poem here" name="poemtext" class="form-control" value={{readfile_content}} id="title" style="height:307px;">{{readfile_content}}</textarea>
+              </div>
+              <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-lg btn-block sendButton" id="submit" name="submit" value="submit" disabled="true">Find Emotion of a Poem</button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+                 <center><p><label for="outout" style="color:white;font-family:Bradley Hand,cursive;font-size:18px;">Emotion</label></p></center>
+                 <center><div id="emotion" style="color:aliceblue;margin-top:200px;font-family:Bradley Hand,cursive;font-size:40px;">{{words}}</div></center>
+            </div>
+        </div>
+        </div> 
+    </div>
+</div>
+</form>  
+<script>
+    $(document).ready(function(){
+    $('.sendButton').attr('disabled',true);
+    $('#title',).keyup(function(){
+        if($(this).val().length !=0)
+            $('.sendButton').attr('disabled', false);            
+        else
+            $('.sendButton').attr('disabled',true);
+    })
+});
+</script> 
+{% endblock %}

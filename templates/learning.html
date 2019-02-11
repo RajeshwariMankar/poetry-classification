@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Emotion Detection of Poem | Learning</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://png.icons8.com/color/50/000000/quill-with-ink.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:black;">
+    <div class="container">
+        <div>
+            <center>
+           <label style="font-family:Bradley Hand,cursive;font-size:25px;color:whitesmoke;">LEARNING</label></center>
+        </div>
+        <div class="col-sm-10 sm-2">
+  <!--  <div class="container-fluid" style="background-color:white;border-radius:10px;position:absolute;display:none;margin-right=50px;"">-->
+        <table class="table table-striped table-hover " style="background-color:white;border-radius:10px;position:absolute;display:none;margin-left:80px;">
+            <tr style="font-family:Bradley Hand,cursive;">
+            <td style="font-size:25px">
+                   Accuracy
+               </td>
+               <td style="font-size:15px">
+                   {{accuracy}}
+               </td>
+               </tr>
+               <tr style="font-family:Bradley Hand,cursive;color:black;">
+                   <td style="font-size:25px;">Errors</td>
+                   <td style="font-size:15px;">
+                       <table>
+                            {% for (category, guess, poem,emotion) in  errors_of_emotions%}
+                            <tr>
+                                <td>Poem id:</td>
+                                <td>{% for word in poem %}
+                                     {{word}}
+                                     {% endfor %}</td>
+                            </tr>
+                            <tr>
+                                 <td>Category:</td>
+                                 <td>{{ category }}</td>
+                            </tr>
+                           <tr>
+                                 <td>Guess:</td>
+                                 <td>{{ guess }}</td>
+                           </tr> 
+                           <tr>
+                                 <td>Emotion:</td>
+                                 <td>{{emotion}}</td>
+                           </tr>
+                           <tr>
+                               <td></td>
+                               <td></td>
+                           </tr> 
+                                     {% endfor %}
+                       </table>
+                   </td>
+               </tr>
+        </table>
+        </div>
+       </div>
+    </div>
+    <script type="text/javascript">
+    $(function(){
+    $('.table').fadeIn(5000).animate({"top":"10px"},4000);
+});
+    </script>
+</body>
+</html>
