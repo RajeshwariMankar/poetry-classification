@@ -1,5 +1,5 @@
 # poetry-classification
-It is based on automatic emotion recognition from poems written in English using Natural Language Processing (NLP) where the poem is given as input and the result is emotion associated with the given poem. Here, we try to categorize poems only in 6 emotions: Joy, Peace, Love, Sad, Hate and Fear.
+This project tries to give the emotion category associated with the poem. It is based on automatic emotion recognition from poems written in English using Natural Language Processing (NLP) where the poem is given as input and the result is emotion associated with the given poem. Here, we try to categorize poems only in 6 emotions: Joy, Peace, Love, Sad, Hate and Fear.
 
 ## Requirements:
   - Python 2.7
