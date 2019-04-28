@@ -6,7 +6,9 @@ This project tries to give the emotion category associated with the poem. It is 
   - NLTK
   - Beautiful Soup(bs4)
   - Flask
-  - SKLearn
+  - SKLearn<br/>
+install requirements using:
+`pip install requirments.txt`
 
 ## Dataset:
 We have created our own corpus by fetching data from https://www.poemhunter.com/ using web scraping.
